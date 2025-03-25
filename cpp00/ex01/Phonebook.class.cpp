@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:04:05 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/25 14:33:28 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/03/25 14:59:02 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 void Phonebook::AddElement(void)
 {
-	book[index] = Contact();
-	book[index].EnterValues();
-	index++;
-	if (index >= 8)
-		index = 0;
+	_book[_index] = Contact();
+	_book[_index].EnterValues();
+	_index++;
+	if (_index >= 8)
+		_index = 0;
 }
 
 static void DisplayTmp(std::string tmp)
@@ -53,15 +53,15 @@ void Phonebook::SearchElement(void)
 	std::cout << BLUE << "|     index|First Name| Last Name|  Nickname|" RESET << std::endl;
 	for (i = 0; i < 8; i++)
 	{
-		if (book[i].GetFirstName().size() == 0)
+		if (_book[i].GetFirstName().size() == 0)
 			break;
 		std::cout << "|";
 		ss.str("");
 		ss << i;
 		DisplayTmp(ss.str());
-		DisplayTmp(book[i].GetFirstName());
-		DisplayTmp(book[i].GetLastName());
-		DisplayTmp(book[i].GetNickname());
+		DisplayTmp(_book[i].GetFirstName());
+		DisplayTmp(_book[i].GetLastName());
+		DisplayTmp(_book[i].GetNickname());
 		std::cout << std::endl;
 	}
 	std::cout << GREEN << "ENTER CONTACT INDEX:";
@@ -70,7 +70,7 @@ void Phonebook::SearchElement(void)
 	if (std::istringstream(answer) >> aindex)
 	{
 		if (aindex < i)
-			book[aindex].ShowValues();
+			_book[aindex].ShowValues();
 		else
 			std::cout << RED << "INVALID INDEX" << RESET << std::endl;
 	}
@@ -78,7 +78,7 @@ void Phonebook::SearchElement(void)
 		std::cout << RED << "INVALID INDEX" << RESET << std::endl;
 }
 
-Phonebook::Phonebook(void): index(0)
+Phonebook::Phonebook(void): _index(0)
 {
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:04:09 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/25 14:04:11 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/03/25 14:56:09 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 class Phonebook
 {
 	private:
-		int		index;
-		Contact	book[8];
+		int		_index;
+		Contact	_book[8];
 	public:
 		void	AddElement(void);
 		void	SearchElement(void);

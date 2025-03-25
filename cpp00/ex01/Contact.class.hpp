@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:03:52 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/25 14:03:55 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/03/25 14:56:32 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class Contact
 {
 	private:
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkest_secret;
-		void 		AskEntry(std::string message, std::string &field);
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_nickname;
+		std::string	_phone_number;
+		std::string	_darkest_secret;
+		void 		_AskEntry(std::string message, std::string &field);
 	public:
 		std::string	GetFirstName(void);
 		std::string	GetLastName(void);

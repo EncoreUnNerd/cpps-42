@@ -17,7 +17,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^
 	@printf "$(GREEN)[✅] $(NAME) compiled$(RESET)\n"
 
-fclean: clean
+fclean:
 	@rm -f $(NAME)
 	@printf "$(GREEN)[✨] fully cleaned$(RESET)\n"
 
@@ -26,4 +26,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all fclean re
