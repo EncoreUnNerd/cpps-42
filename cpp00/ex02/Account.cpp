@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:51:28 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/25 16:01:38 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/03/25 16:05:33 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,8 @@ void Account::displayAccountsInfos(void)
 	std::cout << _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
-Account::Account(int initial_deposit)
+Account::Account(int initial_deposit): _accountIndex(_nbAccounts), _amount(initial_deposit)
 {
-	_accountIndex = _nbAccounts;
-	_amount = initial_deposit;
 	_nbAccounts++;
 	_totalAmount += initial_deposit;
 	_displayTimestamp();
