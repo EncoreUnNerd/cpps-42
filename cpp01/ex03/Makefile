@@ -1,11 +1,11 @@
-NAME = megaphone
+NAME = brain
 
-SRCS = megaphone.cpp
+SRCS = main.cpp HumanB.cpp HumanA.cpp Weapon.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 GREEN = \033[32m
 BLUE = \033[34m
 RESET = \033[0m

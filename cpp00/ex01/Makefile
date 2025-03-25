@@ -2,7 +2,7 @@ NAME = phonebook
 
 SRCS = phonebook.cpp Contact.class.cpp Phonebook.class.cpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -17,11 +17,16 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^
 	@printf "$(GREEN)[✅] $(NAME) compiled$(RESET)\n"
 
+clean:
+	@printf "$(GREEN)[🧹] cleaning$(RESET)\n"
+	@rm -f $(OBJS)
+	@printf "$(GREEN)[✨] cleaned$(RESET)\n"
+
 fclean: clean
 	@rm -f $(NAME)
 	@printf "$(GREEN)[✨] fully cleaned$(RESET)\n"
 
-.c.o:
+.cpp.o:
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 re: fclean all

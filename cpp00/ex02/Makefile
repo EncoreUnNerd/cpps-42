@@ -2,7 +2,7 @@ NAME = account
 
 SRCS = Account.cpp tests.cpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -17,13 +17,18 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^
 	@printf "$(GREEN)[✅] $(NAME) compiled$(RESET)\n"
 
-fclean:
+clean:
+	@printf "$(GREEN)[🧹] cleaning$(RESET)\n"
+	@rm -f $(OBJS)
+	@printf "$(GREEN)[✨] cleaned$(RESET)\n"
+
+fclean: clean
 	@rm -f $(NAME)
 	@printf "$(GREEN)[✨] fully cleaned$(RESET)\n"
 
-.c.o:
+.cpp.o:
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 re: fclean all
 
-.PHONY: all fclean re
+.PHONY: all clean fclean re

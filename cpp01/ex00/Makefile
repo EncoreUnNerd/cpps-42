@@ -1,6 +1,6 @@
-NAME = megaphone
+NAME = brainz
 
-SRCS = megaphone.cpp
+SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:04:05 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/25 14:59:02 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/03/25 18:12:20 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void Phonebook::SearchElement(void)
 {
 	std::stringstream	ss;
 	std::string			answer;
-	int					i;
-	int					aindex;
+	unsigned int		i;
+	unsigned int		aindex;
 
 	std::cout << BLUE << "|     index|First Name| Last Name|  Nickname|" RESET << std::endl;
 	for (i = 0; i < 8; i++)
