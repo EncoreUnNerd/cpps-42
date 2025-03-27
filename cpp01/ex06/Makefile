@@ -1,6 +1,6 @@
-NAME = violence
+NAME = harlFilter
 
-SRCS = main.cpp HumanB.cpp HumanA.cpp Weapon.cpp
+SRCS = main.cpp Harl.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

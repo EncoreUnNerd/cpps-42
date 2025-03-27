@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/26 14:38:40 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/26 14:58:08 by mhenin           ###   ########.fr       */
+/*   Created: 2025/03/27 16:52:27 by mhenin            #+#    #+#             */
+/*   Updated: 2025/03/27 17:09:05 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#include "Harl.hpp"
 
-#include "Weapon.hpp"
-#include <iostream>
-
-class HumanB
+int main(int ac, char **av)
 {
-	private:
-		Weapon		*weapon;
-		std::string	name;
-	public:
-		void	attack(void);
-		void	setWeapon(Weapon &new_weapon);
+	Harl harl;
 
-		HumanB(std::string name);
-}; 
-
-#endif
+	if (ac != 2)
+	{
+		std::cerr << "Invalid number of arg" << std::endl;
+		return (1);
+	}
+	std::string	value(av[1]);
+	harl.complain(value);
+}

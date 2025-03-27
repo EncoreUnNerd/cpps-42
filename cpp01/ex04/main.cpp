@@ -6,15 +6,13 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:19:56 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/26 18:06:23 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/03/27 15:58:30 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 #include <string>
-
-// main main roblox caca pipi main
 
 int	main(int ac, char **av)
 {
@@ -49,7 +47,15 @@ int	main(int ac, char **av)
 		return (1);
 	}
 
+	//? Replacement and writing part
 	to_replace = std::string(av[2]);
+	if (to_replace.empty())
+	{
+		input_file.close();
+		output_file.close();
+		std::cerr << "string to replace can not be empty" << std::endl;
+		return (1);
+	}
 	replacement = std::string(av[3]);
 
 	while (std::getline(input_file, line)) {

@@ -10,20 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
 #include "Weapon.hpp"
 #include <iostream>
 
-class HumanB
+class HumanA
 {
 	private:
-		Weapon		weapon;
+		Weapon		&weapon;
 		std::string	name;
+
 	public:
+		HumanA(std::string name,Weapon &base_weapon);
+		
 		void	attack(void);
-		void	setWeapon(Weapon new_weapon);
 }; 
 
 #endif
