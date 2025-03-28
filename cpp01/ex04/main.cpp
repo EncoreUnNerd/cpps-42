@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:19:56 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/27 15:58:30 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/03/28 14:43:50 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,40 @@
 #include <fstream>
 #include <string>
 
-int	main(int ac, char **av)
+static int	replacement(std::ifstream &input_file, std::ofstream &output_file, char **av)
 {
-	std::string	line;
 	size_t		pos = 0;
+	size_t		spos = 0;
+	std::string	line;
 	std::string	to_replace;
 	std::string	replacement;
+
+	to_replace = std::string(av[2]);
+	if (to_replace.empty())
+	{
+		std::cerr << "string to replace can not be empty" << std::endl;
+		return (1);
+	}
+	replacement = std::string(av[3]);
+
+	while (std::getline(input_file, line)) {
+		while ((pos = line.find(to_replace, spos)) != std::string::npos)
+		{
+			std::string	tmp;
+			tmp = line.substr(0, pos);
+			tmp += replacement;
+			tmp += line.substr(pos + to_replace.length());
+			line = tmp;
+			spos += pos + to_replace.length() + 1;
+		}
+		spos = 0;
+		output_file << line << std::endl;
+	}
+	return (0);
+}
+
+int	main(int ac, char **av)
+{
 	std::string output_filename;
 
 	//? verif argument
@@ -39,6 +67,7 @@ int	main(int ac, char **av)
 
 	//? open or create output file
 	output_filename = std::string(av[1]) + ".replace";
+	
 	std::ofstream output_file(output_filename.c_str());
 	if (!output_file)
 	{
@@ -48,27 +77,7 @@ int	main(int ac, char **av)
 	}
 
 	//? Replacement and writing part
-	to_replace = std::string(av[2]);
-	if (to_replace.empty())
-	{
-		input_file.close();
-		output_file.close();
-		std::cerr << "string to replace can not be empty" << std::endl;
-		return (1);
-	}
-	replacement = std::string(av[3]);
-
-	while (std::getline(input_file, line)) {
-		while ((pos = line.find(to_replace)) != std::string::npos)
-		{
-			std::string	tmp;
-			tmp = line.substr(0, pos);
-			tmp += replacement;
-			tmp += line.substr(pos + to_replace.length());
-			line = tmp;
-		}
-		output_file << line << std::endl;
-	}
+	replacement(input_file, output_file, av);
 	input_file.close();
 	output_file.close();
 }
