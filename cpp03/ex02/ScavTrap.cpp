@@ -17,3 +17,16 @@ ScavTrap::~ScavTrap(void)
 {
 	std::cout << "ScavTrap " << getName() << " has been disassembled!" << std::endl;
 }
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &scavtrap)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	*this = scavtrap;
+	return (*this);
+}
+
+ScavTrap::ScavTrap(const ScavTrap &to_copy) : ClapTrap(to_copy.getName())
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = to_copy;
+}

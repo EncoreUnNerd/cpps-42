@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 14:32:52 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 17:55:59 by mhenin           ###   ########.fr       */
+/*   Created: 2025/04/01 17:20:45 by mhenin            #+#    #+#             */
+/*   Updated: 2025/04/01 17:23:05 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ScavTrap.hpp"
+#include <iostream>
 
-class FragTrap: public ScavTrap
+class Brain
 {
-	public:
-		void 		highFivesGuys(void);
-		FragTrap	&operator=(const FragTrap &fragtrap);
-		
-		FragTrap(std::string name);
-		FragTrap(const FragTrap &to_copy);
-		~FragTrap(void);
+	private:
+		std::string	ideas[100];
 };

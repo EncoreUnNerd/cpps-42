@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:32:52 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 15:05:07 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/01 17:55:05 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 class ScavTrap: public ClapTrap
 {
 	public:
-		void guardGate(void);
-
+		void 		guardGate(void);
+		ScavTrap	&operator=(const ScavTrap &scavtrap);
+		
 		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap &to_copy);
 		~ScavTrap(void);
 };

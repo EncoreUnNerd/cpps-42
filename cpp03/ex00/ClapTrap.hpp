@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:01:22 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/31 17:20:04 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/01 17:29:28 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ class ClapTrap
 		int			_energy_points;
 		int			_attack_damage;
 	public:
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		void 		attack(const std::string& target);
+		void 		takeDamage(unsigned int amount);
+		void 		beRepaired(unsigned int amount);
+		ClapTrap	&operator=(const ClapTrap &claptrap);
 
 		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap &to_copy);
 		~ClapTrap(void);
 };

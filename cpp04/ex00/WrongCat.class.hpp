@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 14:32:52 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 17:55:59 by mhenin           ###   ########.fr       */
+/*   Created: 2025/04/01 16:25:35 by mhenin            #+#    #+#             */
+/*   Updated: 2025/04/01 18:04:36 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ScavTrap.hpp"
+#include "WrongAnimal.class.hpp"
 
-class FragTrap: public ScavTrap
+class WrongCat: public WrongAnimal
 {
 	public:
-		void 		highFivesGuys(void);
-		FragTrap	&operator=(const FragTrap &fragtrap);
+		void	makeSound() const;
+		WrongCat	&operator=(const WrongCat &wrongcat);
 		
-		FragTrap(std::string name);
-		FragTrap(const FragTrap &to_copy);
-		~FragTrap(void);
+		WrongCat(void);
+		WrongCat(const WrongCat &to_copy);
+		~WrongCat(void);
 };
