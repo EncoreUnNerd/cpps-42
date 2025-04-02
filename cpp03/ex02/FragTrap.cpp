@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:17:46 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 17:58:31 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/02 17:04:21 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void FragTrap::highFivesGuys(void)
 FragTrap &FragTrap::operator=(const FragTrap &fragtrap)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	*this = fragtrap;
+	setHitPoints(fragtrap.getHitPoints());
+	setEnergyPoints(fragtrap.getEnergyPoints());
+	setAttackDamage(fragtrap.getAttackDamage());
+	setName(fragtrap.getName());
 	return (*this);
 }
 

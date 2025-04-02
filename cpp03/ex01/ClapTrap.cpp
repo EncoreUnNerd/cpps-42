@@ -90,10 +90,18 @@ void ClapTrap::setAttackDamage(int value)
 	_attack_damage = value;
 }
 
+void ClapTrap::setName(std::string name)
+{
+	_name = name;
+}
+
 ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	*this = claptrap;
+	this->_attack_damage = claptrap._attack_damage;
+	this->_energy_points = claptrap._energy_points;
+	this->_hit_points = claptrap._hit_points;
+	this->_name = claptrap._name;
 	return (*this);
 }
 

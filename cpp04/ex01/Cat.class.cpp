@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:33:37 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 18:02:31 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/02 17:50:35 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,24 @@ void Cat::makeSound() const
 
 Cat::Cat(void): Animal()
 {
+	_brain = new Brain();
 	this->type = "Cat";
 	std::cout << "Cat constructor called" << std::endl;
 }
 
 Cat::~Cat(void)
 {
+	delete _brain;
 	std::cout << "Cat destructor called" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &cat)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	*this = cat;
+	this->type = cat.type;
+	delete this->_brain;
+	this->_brain = new Brain();
+	*_brain = *(cat._brain);
 	return (*this);
 }
 

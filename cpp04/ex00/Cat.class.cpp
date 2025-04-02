@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:33:37 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 18:02:31 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/02 17:06:36 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Cat::~Cat(void)
 Cat &Cat::operator=(const Cat &cat)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	*this = cat;
+	this->type = cat.type;
 	return (*this);
 }
 

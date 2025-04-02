@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:25:51 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 18:03:40 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/02 17:06:56 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ WrongAnimal::~WrongAnimal()
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &wronganimal)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	*this = wronganimal;
+	this->type = wronganimal.type;
 	return (*this);
 }
 

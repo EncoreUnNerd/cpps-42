@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:33:37 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 18:04:46 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/02 17:13:34 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ WrongCat::~WrongCat(void)
 WrongCat &WrongCat::operator=(const WrongCat &wrongcat)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	*this = wrongcat;
+	this->type = wrongcat.type;
 	return (*this);
 }
 

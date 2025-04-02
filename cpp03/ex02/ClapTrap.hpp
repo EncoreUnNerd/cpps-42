@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:01:22 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 15:03:09 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/02 17:02:25 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ClapTrap
 		void		setHitPoints(int value);
 		void		setEnergyPoints(int value);
 		void		setAttackDamage(int value);
+		void		setName(std::string name);
 
 		int			getHitPoints(void) const;
 		int			getEnergyPoints(void) const;
@@ -36,7 +37,9 @@ class ClapTrap
 		void		attack(const std::string& target);
 		void 		takeDamage(unsigned int amount);
 		void 		beRepaired(unsigned int amount);
+		ClapTrap	&operator=(const ClapTrap &claptrap);
 
 		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap &to_copy);
 		~ClapTrap(void);
 };
