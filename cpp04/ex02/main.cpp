@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:35:33 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/03 14:47:30 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/03 14:55:51 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main()
 	// delete k;
 
 	// std::cout << std::endl;
+	// Animal a;
 
 	Animal *test[100];
 	for (int i = 0; i < 100; i++)
@@ -44,9 +45,10 @@ int	main()
 		else
 			test[i] = new Cat();
 	}
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 100; i++) 
+		test[i]->makeSound();
+	for (int i = 0; i < 100; i++) 
 		delete test[i];
-	}
 	// const Animal* j = new Dog();
 	// const Animal* i = new Cat();
 	
