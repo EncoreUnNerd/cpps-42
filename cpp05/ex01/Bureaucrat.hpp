@@ -31,17 +31,17 @@ class Bureaucrat
 		int 				_grade;
 
 	public:
-		int			getGrade(void) const;
-		std::string	getName(void) const;
-		void		incrGrade(void);
-		void		decrGrade(void);
-		void		signForm(Form &form);
-		Bureaucrat	&operator=(const Bureaucrat &bureaucrat);
+		const int			&getGrade() const;
+		const std::string	&getName() const;
+		void				incrGrade();
+		void				decrGrade();
+		void				signForm(Form &form);
+		Bureaucrat			&operator=(const Bureaucrat &bureaucrat);
 
-		Bureaucrat(void);
+		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat &bureaucrat);
-		~Bureaucrat(void);
+		~Bureaucrat();
 
 		class GradeTooHighException : public std::exception {
 			public:

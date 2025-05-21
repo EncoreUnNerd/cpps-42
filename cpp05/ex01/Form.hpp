@@ -15,17 +15,17 @@ class Form
 		const int			_require_exec;
 
 	public:
-		std::string	getName(void) const;
-		bool		getSign(void) const;
-		int			getRExec(void) const;
-		int			getRSign(void) const;
-		void		beSigned(const Bureaucrat &bureaucrat);
-		Form &operator=(const Form &to_copy);
+		const std::string	&getName() const;
+		const bool			&getSign() const;
+		const int			&getRExec() const;
+		const int			&getRSign() const;
+		void				beSigned(const Bureaucrat &bureaucrat);
+		Form 				&operator=(const Form &to_copy);
 
-		Form(void);
+		Form();
 		Form(std::string name, int required_sign, int required_exec);
 		Form(const Form &to_copy);
-		~Form(void);
+		~Form();
 
 		class GradeTooHighException : public std::exception {
 			public:

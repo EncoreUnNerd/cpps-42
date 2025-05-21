@@ -1,21 +1,21 @@
 #include "Form.hpp"
 
-std::string Form::getName(void) const
+const std::string &Form::getName() const
 {
 	return (_name);
 }
 
-bool	Form::getSign(void) const
+const bool	&Form::getSign() const
 {
 	return (_sign);
 }
 
-int	Form::getRSign(void) const
+const int	&Form::getRSign() const
 {
 	return (_require_sign);
 }
 
-int Form::getRExec(void) const
+const int	&Form::getRExec() const
 {
 	return (_require_exec);
 }
@@ -29,7 +29,7 @@ void	Form::beSigned(const Bureaucrat &bureaucrat)
 
 // --- Constructors --
 
-Form::Form(void): _name("UnknownForm"), _sign(0), _require_sign(100), _require_exec(101) {}
+Form::Form(): _name("UnknownForm"), _sign(0), _require_sign(100), _require_exec(101) {}
 
 Form::Form(const Form &to_copy): _name(to_copy._name), _sign(to_copy._sign), _require_sign(to_copy._require_sign), _require_exec(to_copy._require_exec) {}
 
@@ -43,7 +43,7 @@ Form::Form(std::string name, int required_sign, int required_exec): _name(name),
 
 // -- Destructor ---
 
-Form::~Form(void) {}
+Form::~Form() {}
 
 // --- Operator ---
 

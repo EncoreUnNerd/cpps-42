@@ -14,12 +14,12 @@
 #include <iostream>
 #include <ostream>
 
-int Bureaucrat::getGrade(void) const
+const int &Bureaucrat::getGrade() const
 {
 	return (_grade);
 }
 
-std::string	Bureaucrat::getName(void) const
+const std::string	&Bureaucrat::getName() const
 {
 	return (_name);
 }
@@ -52,7 +52,7 @@ void Bureaucrat::signForm(Form &form)
 }
 
 // --- CONSTRUCTORS ---
-Bureaucrat::Bureaucrat(void): _name("Unknown Bureaucrat"), _grade(1) {}
+Bureaucrat::Bureaucrat(): _name("Unknown Bureaucrat"), _grade(1) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
@@ -74,7 +74,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat): _name(bureaucrat._name)
 }
 
 // --- DESTRUCTOR ---
-Bureaucrat::~Bureaucrat(void) {}
+Bureaucrat::~Bureaucrat() {}
 
 
 // --- OPERATORS ---
