@@ -14,7 +14,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() > this->getRExec())
 		throw AForm::GradeTooLowException();
-	std::ofstream	outputfile(_target + "_shrubbery");
+	std::ofstream	outputfile((_target + "_shrubbery").c_str());
 	if (!outputfile.is_open())
 		throw std::runtime_error("Could not create shrubbery file");
 

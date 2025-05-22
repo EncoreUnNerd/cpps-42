@@ -67,7 +67,7 @@ void tester(Bureaucrat bureaucrat)
 	std::cout << BLUE << "Bureaucrat boss créé avec grade : " << boss.getGrade() << RESET << std::endl;
 
 	// Initialisation du générateur de nombres aléatoires pour RobotomyRequestForm
-	std::srand(std::time(nullptr));
+	std::srand(std::time(0));
 
 	// --- TEST DES FORMULAIRES SPÉCIFIQUES ---
 	std::cout << GREEN << "\n=== TEST DES FORMULAIRES SPÉCIFIQUES ===" << RESET << std::endl;
