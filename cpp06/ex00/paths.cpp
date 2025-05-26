@@ -28,14 +28,14 @@ void	float_path(std::string literal)
 	else
 		std::cout << "char : '" << static_cast<char>(value) << "'" << std::endl;
 
-	if (value > (float)INT_MAX || value < (float)INT_MIN)
+	if (value > (float)INT_MAX || value < (float)INT_MIN || literal == "nanf")
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " << static_cast<int>(value) << std::endl;
 
 	std::stringstream ss;
 	ss << value;
-	if ((literal.find(".") == std::string::npos || (literal.find(".0") == literal.length() - 3)) && ss.str().find("e") == std::string::npos)
+	if (literal.find("nanf") == std::string::npos && literal.find("inff") == std::string::npos && (literal.find(".") == std::string::npos || (literal.find(".0") == literal.length() - 3)) && ss.str().find("e") == std::string::npos)
 	{
 		std::cout << "float : " << value << ".0f" << std::endl;
 		std::cout << "double : " << static_cast<double>(value) << ".0" << std::endl;
@@ -60,14 +60,14 @@ void	double_path(std::string literal)
 	else
 		std::cout << "char : '" << static_cast<char>(value) << "'" << std::endl;
 
-	if (value > INT_MAX || value < INT_MIN)
+	if (value > INT_MAX || value < INT_MIN || literal == "nan")
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " << static_cast<int>(value) << std::endl;
 
 	std::stringstream ss;
 	ss << value;
-	if ((literal.find(".") == std::string::npos || (literal.find(".0") == literal.length() - 2)) && ss.str().find("e") == std::string::npos)
+	if (literal.find("nan") == std::string::npos && literal.find("inf") == std::string::npos && (literal.find(".") == std::string::npos || (literal.find(".0") == literal.length() - 2)) && ss.str().find("e") == std::string::npos)
 	{
 		if (value > FLT_MIN && value < FLT_MAX)
 			std::cout << "float : " << static_cast<float>(value) << ".0f" << std::endl;
