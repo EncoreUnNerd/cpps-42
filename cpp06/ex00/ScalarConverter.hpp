@@ -25,6 +25,7 @@ bool check_int(std::string literal);
 bool check_float(std::string literal);
 bool check_double(std::string literal);
 
+void	int_path(std::string literal);
+void	double_path(std::string literal);
 void	float_path(std::string literal);
 void	char_path(std::string literal);
-void	other_path(std::string literal);

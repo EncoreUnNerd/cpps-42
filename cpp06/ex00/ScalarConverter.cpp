@@ -3,15 +3,33 @@
 
 void ScalarConverter::convert(std::string literal)
 {
-	if (literal[literal.length()-1] == 'f')
+	if (literal.length() == 1 && !(literal[0] >= '0' && literal[0] <= '9'))
 	{
-		if (check_float(literal))
-		{
-			float_path(literal);
-		}
+		char_path(literal);
+		return ;
 	}
-	// After use sstream to change it in that
-	// after cast in every type
+	else if (literal[literal.length() - 1] == 'f' && check_float(literal))
+	{
+		float_path(literal);
+		return ;
+	}
+	else if (check_int(literal))
+	{
+		int_path(literal);
+		return ;
+	}
+	else if (check_double(literal))
+	{
+		double_path(literal);
+		return ;
+	}
+	else
+	{
+		std::cout << "char : impossible" << std::endl;
+		std::cout << "int : impossible" << std::endl;
+		std::cout << "float: impossible" << std::endl;
+		std::cout << "double : impossible" << std::endl;
+	}
 }
 
 // --- Operator ---
