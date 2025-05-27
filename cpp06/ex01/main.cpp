@@ -24,5 +24,6 @@ int main(void)
 	else
 		std::cout << "failure" << std::endl;
 
+	delete ori;
 	return (0);
 }
