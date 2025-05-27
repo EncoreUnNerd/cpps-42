@@ -12,8 +12,11 @@
 
 #pragma once
 
+#include "AForm.hpp"
 #include <string>
 #include <exception>
+
+class AForm;
 
 #define GREY   "\033[90m"
 #define RED  "\033[31m"
@@ -32,6 +35,8 @@ class Bureaucrat
 		const std::string	&getName() const;
 		void				incrGrade();
 		void				decrGrade();
+		void				signForm(AForm &form);
+		void				executeForm(AForm const & form) const;
 		Bureaucrat			&operator=(const Bureaucrat &bureaucrat);
 
 		Bureaucrat();

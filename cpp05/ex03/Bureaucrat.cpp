@@ -11,9 +11,11 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include <exception>
+#include <iostream>
 #include <ostream>
 
-const int	&Bureaucrat::getGrade() const
+const int &Bureaucrat::getGrade() const
 {
 	return (_grade);
 }
@@ -23,22 +25,48 @@ const std::string	&Bureaucrat::getName() const
 	return (_name);
 }
 
-void Bureaucrat::decrGrade()
+void Bureaucrat::decrGrade(void)
 {
 	if (_grade == 150)
 		throw GradeTooLowException();
 	_grade++;
 }
 
-void Bureaucrat::incrGrade()
+void Bureaucrat::incrGrade(void)
 {
 	if (_grade == 1)
 		throw GradeTooHighException();
 	_grade--;
 }
 
+void Bureaucrat::signForm(AForm &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << GREEN << _name << " signed " << form.getName() << "." << RESET << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << GREEN << _name << " couldn’t sign "<< form.getName() <<" because "<< e.what() << "." << RESET << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << GREEN << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << RED << _name << " has failed to execute " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
 // --- CONSTRUCTORS ---
-Bureaucrat::Bureaucrat(void): _name("Unknown Bureaucrat"), _grade(1) {}
+Bureaucrat::Bureaucrat(): _name("Unknown Bureaucrat"), _grade(1) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
@@ -60,7 +88,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat): _name(bureaucrat._name)
 }
 
 // --- DESTRUCTOR ---
-Bureaucrat::~Bureaucrat(void) {}
+Bureaucrat::~Bureaucrat() {}
 
 
 // --- OPERATORS ---
