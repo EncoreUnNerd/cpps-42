@@ -3,6 +3,7 @@
 #include "B.hpp"
 #include "C.hpp"
 #include <ctime>
+#include <cstdlib>
 #include <iostream>
 
 Base *generate(void)
@@ -69,7 +70,7 @@ int main(void)
 	identify(p);
 
 	// --- Identify with ref --- //
-	identify(*p);
+	identify(p);
 
 	delete p;
 	return (0);

@@ -1,6 +1,5 @@
 #include "Serializer.hpp"
 #include "data.hpp"
-#include <cstdint>
 #include <iostream>
 
 int main(void)

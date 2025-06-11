@@ -1,6 +1,6 @@
 #include "Serializer.hpp"
 #include "data.hpp"
-#include <cstdint>
+#include <stddef.h>
 
 // --- Functions --- //
 uintptr_t Serializer::serialize(Data *ptr)

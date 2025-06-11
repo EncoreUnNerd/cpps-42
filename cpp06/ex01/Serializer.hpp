@@ -1,8 +1,12 @@
 #pragma once
 
-#include <cstdint>
 #include <sys/types.h>
 #include "data.hpp"
+
+// Typedef ici car on code en cpp98 sur UBUNTU donc celon la meteo il est dispo ou pas
+#ifndef UINTPTR_MAX
+typedef unsigned long uintptr_t;
+#endif
 
 class Serializer
 {
