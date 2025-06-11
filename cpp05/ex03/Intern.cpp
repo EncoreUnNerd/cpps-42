@@ -3,6 +3,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <cstddef>
 #include <exception>
 #include <iostream>
 #include <string>
@@ -41,12 +42,12 @@ AForm *Intern::makeForm(std::string name, std::string target)
 			}
 		}
 		std::cout << RED << "Intern cannot create " << name << " because it is unknown." << RESET << std::endl;
-		return nullptr;
+		return NULL;
 	}
 	catch (const std::exception &e)
 	{
 		std::cout << RED << "Intern cannot create " << name << " because it crashed." << RESET << std::endl;
-		return nullptr;
+		return NULL;
 	}
 }
 
