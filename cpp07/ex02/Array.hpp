@@ -12,6 +12,7 @@ class Array
 		unsigned int	size();
 		Array			&operator=(const Array &to_copy);
 		T				&operator[](unsigned int index);
+		const T			&operator[](unsigned int index) const;
 
 		Array();
 		Array(unsigned int n);
@@ -48,6 +49,14 @@ Array<T>	&Array<T>::operator=(const Array<T> &to_copy)
 
 template<typename T>
 T	&Array<T>::operator[](unsigned int index)
+{
+	if (index >= _size)
+		throw OutOufBoundException();
+	return _array[index];
+}
+
+template<typename T>
+const T	&Array<T>::operator[](unsigned int index) const
 {
 	if (index >= _size)
 		throw OutOufBoundException();

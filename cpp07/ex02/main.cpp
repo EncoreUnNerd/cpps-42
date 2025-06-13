@@ -434,5 +434,12 @@ int main() {
     std::cout << "\n🏆 ========== TOUS LES TESTS TERMINÉS ========== 🏆" << std::endl;
     std::cout << "Si tous les tests sont passés, votre implémentation de Array est robuste !" << std::endl;
 
+    std::cout << "test const" << std::endl;
+    Array<int> test(5);
+    test[0] = 2;
+    test[1] = 4;
+    const Array<int> testc(test);
+    std::cout << testc[0] << std::endl;
+
     return 0;
 }
