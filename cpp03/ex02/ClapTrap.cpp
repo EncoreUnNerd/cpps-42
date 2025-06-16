@@ -55,46 +55,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << _name << " can't repaire he has no energy points left!" << std::endl;
 }
 
-int ClapTrap::getHitPoints(void) const
-{
-	return _hit_points;
-}
-
-int ClapTrap::getEnergyPoints(void) const
-{
-	return _energy_points;
-}
-
-int ClapTrap::getAttackDamage(void) const
-{
-	return _attack_damage;
-}
-
-std::string ClapTrap::getName(void) const
-{
-	return _name;
-}
-
-void ClapTrap::setHitPoints(int value)
-{
-	_hit_points = value;
-}
-
-void ClapTrap::setEnergyPoints(int value)
-{
-	_energy_points = value;
-}
-
-void ClapTrap::setAttackDamage(int value)
-{
-	_attack_damage = value;
-}
-
-void ClapTrap::setName(std::string name)
-{
-	_name = name;
-}
-
 ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap)
 {
 	std::cout << "Copy assignment operator called" << std::endl;

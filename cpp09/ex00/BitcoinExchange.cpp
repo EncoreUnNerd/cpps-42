@@ -10,33 +10,35 @@
 #include <string>
 #include <stdexcept>
 
-std::string ltrim(const std::string& str) {
+std::string ltrim(const std::string& str)
+{
     std::string::size_type start = 0;
-    while (start < str.length() && std::isspace(str[start])) {
+    while (start < str.length() && std::isspace(str[start]))
         ++start;
-    }
+
     return str.substr(start);
 }
 
-std::string rtrim(const std::string& str) {
+std::string rtrim(const std::string& str)
+{
     std::string::size_type end = str.length();
-    while (end > 0 && std::isspace(str[end - 1])) {
+    while (end > 0 && std::isspace(str[end - 1]))
         --end;
-    }
+
     return str.substr(0, end);
 }
 
-std::string trim(const std::string& str) {
+std::string trim(const std::string& str)
+{
     return ltrim(rtrim(str));
 }
 
-std::map<std::string, float>::iterator
-findDateOrClosestOlder(std::map<std::string, float>& dateMap,
-                       const std::string& targetDate) {
+std::map<std::string, float>::iterator findDateOrClosestOlder(std::map<std::string, float>& dateMap, const std::string& targetDate)
+{
 
     std::map<std::string, float>::iterator it = dateMap.find(targetDate);
     if (it != dateMap.end()) {
-        return it; // Date trouvée exactement
+        return it;
     }
 
     it = dateMap.lower_bound(targetDate);
@@ -49,7 +51,8 @@ findDateOrClosestOlder(std::map<std::string, float>& dateMap,
     return it;
 }
 
-static bool isLeapYear(int year) {
+static bool isLeapYear(int year)
+{
     return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
 }
 
@@ -60,19 +63,18 @@ bool isValidDateFormat(std::string &date) {
     std::stringstream ss;
 
     date = trim(date);
-    if (date.length() != 10) {
+    if (date.length() != 10)
         return false;
-    }
 
-    if (date[4] != '-' || date[7] != '-') {
+    if (date[4] != '-' || date[7] != '-')
         return false;
-    }
 
-    for (i = 0; i < date.length(); ++i) {
-        if (i != 4 && i != 7) {
-            if (date[i] < '0' || date[i] > '9') {
+    for (i = 0; i < date.length(); ++i)
+    {
+        if (i != 4 && i != 7)
+        {
+            if (date[i] < '0' || date[i] > '9')
                 return false;
-            }
         }
     }
 
@@ -87,21 +89,18 @@ bool isValidDateFormat(std::string &date) {
     ss.str(date.substr(8, 2));
     ss >> day;
 
-    if (month < 1 || month > 12) {
+    if (month < 1 || month > 12)
         return false;
-    }
 
     if (day < 1) {
         return false;
     }
 
-    if (month == 2 && isLeapYear(year)) {
+    if (month == 2 && isLeapYear(year))
         daysInMonth[1] = 29;
-    }
 
-    if (day > daysInMonth[month - 1]) {
+    if (day > daysInMonth[month - 1])
         return false;
-    }
 
     return true;
 }

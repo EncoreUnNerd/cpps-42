@@ -13,7 +13,7 @@ void HumanB::setWeapon(Weapon &new_weapon)
 	weapon = &new_weapon;
 }
 
-HumanB::HumanB(std::string name): name(name), weapon(NULL)
+HumanB::HumanB(std::string name): weapon(NULL), name(name)
 {
 	return ;
 }

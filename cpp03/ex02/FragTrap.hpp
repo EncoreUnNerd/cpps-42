@@ -6,18 +6,19 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:32:52 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 17:55:59 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/07 16:01:32 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-class FragTrap: public ScavTrap
+class FragTrap: public ClapTrap
 {
 	public:
 		void 		highFivesGuys(void);
+		void		attack(const std::string &target);
 		FragTrap	&operator=(const FragTrap &fragtrap);
 		
 		FragTrap(std::string name);

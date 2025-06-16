@@ -2,6 +2,7 @@
 
 #include <exception>
 #include <vector>
+#include <cstddef>
 
 class Span
 {

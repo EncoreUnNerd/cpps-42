@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:33:37 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/02 17:50:35 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/08 15:16:33 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,18 @@ Cat &Cat::operator=(const Cat &cat)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->type = cat.type;
-	delete this->_brain;
-	this->_brain = new Brain();
-	*_brain = *(cat._brain);
+	if (this->_brain)
+		delete this->_brain;
+	if (cat._brain)
+		this->_brain = new Brain(*(cat._brain));
+	else
+		this->_brain = NULL;
 	return (*this);
 }
 
 Cat::Cat(const Cat &to_copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	this->_brain = NULL;
 	*this = to_copy;
 }

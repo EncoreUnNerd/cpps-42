@@ -1,4 +1,5 @@
 #include "RPN.hpp"
+#include <stdexcept>
 
 // --- Functions --- //
 void ReversePolish::add(int n)

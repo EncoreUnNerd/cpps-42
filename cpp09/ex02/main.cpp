@@ -16,20 +16,38 @@ int main(int ac, char **av)
     long tmp = 0;
 
     if (ac < 2)
+    {
+    	std::cout << RED << "Not enough argument !" << RESET << std::endl;
         return 1;
+    }
     while (av[i])
     {
         tmp = strtol(av[i], &ptr, 10);
         if (ptr == NULL)
+        {
+        	std::cout << RED << "Invalid !" << RESET << std::endl;
             return 0;
+        }
         if (*ptr != '\0')
+        {
+        	std::cout << RED << "Invalid (pobably not a full number) !" << RESET << std::endl;
             return 1;
+        }
         if (tmp < 0)
+        {
+        	std::cout << RED << "Invalid (negative) !" << RESET << std::endl;
             return 1;
+        }
         if (tmp > INT_MAX || tmp < INT_MIN)
+        {
+        	std::cout << RED << "Invalid (too big or too small) !" << RESET << std::endl;
             return 1;
+        }
         if (std::find(init_v.begin(), init_v.end(), tmp) != init_v.end())
+        {
+        	std::cout << RED << "Invalid (already in vector) !" << RESET << std::endl;
             return 1;
+        }
         else
         {
             init_v.push_back(tmp);

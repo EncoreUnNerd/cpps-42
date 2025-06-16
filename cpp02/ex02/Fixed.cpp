@@ -6,7 +6,7 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:42:54 by mhenin            #+#    #+#             */
-/*   Updated: 2025/03/31 16:53:25 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/07 15:33:17 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,23 +110,33 @@ bool	Fixed::operator>(const Fixed &fixed)
 
 Fixed Fixed::operator*(const Fixed &fixed)
 {
-	return (this->toFloat() * fixed.toFloat());
+	Fixed result;
+	long long temp = (long long)this->getRawBits() * fixed.getRawBits();
+    result.setRawBits((temp >> _nbits));
+    return result;
 }
 
 Fixed Fixed::operator/(const Fixed &fixed)
 {
-	return (this->toFloat() / fixed.toFloat());
+	if (fixed.getRawBits() == 0)
+		throw std::runtime_error("Division par zéro");
+	Fixed result;
+	result.setRawBits((this->getRawBits() << _nbits) / fixed.getRawBits());
+	return result;
 }
-
 
 Fixed Fixed::operator+(const Fixed &fixed)
 {
-	return (this->getRawBits() + fixed.getRawBits());
+	Fixed temp;
+	temp.setRawBits(this->getRawBits() + fixed.getRawBits());
+	return (temp);
 }
 
 Fixed Fixed::operator-(const Fixed &fixed)
 {
-	return (this->getRawBits() - fixed.getRawBits());
+	Fixed temp;
+	temp.setRawBits(this->getRawBits() - fixed.getRawBits());
+	return (temp);
 }
 
 Fixed Fixed::operator++(int)

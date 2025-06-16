@@ -6,11 +6,12 @@
 /*   By: mhenin <mhenin@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:20:19 by mhenin            #+#    #+#             */
-/*   Updated: 2025/04/01 15:22:24 by mhenin           ###   ########.fr       */
+/*   Updated: 2025/04/07 16:01:58 by mhenin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
@@ -39,7 +40,6 @@ int main(void)
 		fragtrap.attack("random");
 	fragtrap.takeDamage(20);
 	fragtrap.beRepaired(10);
-	fragtrap.guardGate();
 	fragtrap.highFivesGuys();
 	fragtrap.takeDamage(1000);
 }

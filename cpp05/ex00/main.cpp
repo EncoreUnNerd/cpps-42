@@ -54,8 +54,8 @@ void tester(Bureaucrat bureaucrat)
 
 int main()
 {
-	Bureaucrat anonyme;
-	tester(anonyme);
+	// Bureaucrat anonyme;
+	// tester(anonyme);
 
 	Bureaucrat jul("julien", 12);
 	tester(jul);

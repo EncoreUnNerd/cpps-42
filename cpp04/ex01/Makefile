@@ -1,11 +1,11 @@
 NAME = animal
 
-SRCS = main.cpp Dog.class.cpp Cat.class.cpp Animal.class.cpp WrongAnimal.class.cpp WrongCat.class.cpp Brain.class.cpp
+SRCS = main.cpp Dog.class.cpp Cat.class.cpp Animal.class.cpp Brain.class.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 GREEN = \033[32m
 BLUE = \033[34m
 RESET = \033[0m
