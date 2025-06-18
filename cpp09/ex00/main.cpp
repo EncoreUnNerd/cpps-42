@@ -16,20 +16,20 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		std::cout << RED << "Wrong number of argument" << RESET << std::endl;
+		std::cout << RED << "Error: Wrong number of argument." << RESET << std::endl;
 		return 1;
 	}
 
 	try {
 		database = get_database();
 	} catch (std::exception &e) {
-		std::cout << RED << "Failed to parse data : " << e.what() << std::endl;
+		std::cout << RED << "Error: Failed to parse data. " << e.what() << std::endl;
 	}
 
 	std::ifstream dataFile(av[1]);
 	if (!dataFile.is_open())
 	{
-		std::cout << RED << "Failed to open : " << av[1] << RESET << std::endl;
+		std::cout << RED << "Error: could not open file. " << av[1] << RESET << std::endl;
 		return 1;
 	}
 	std::string	line;
@@ -54,8 +54,15 @@ int main(int ac, char **av)
 			std::cout << RED << "Error: too large a number." << RESET << std::endl;
 		else
 		{
-			std::map<std::string, float>::iterator result = findDateOrClosestOlder(database, date);
-			std::cout << date << " => " << value << " = " << value_float * result->second << std::endl;
+			try
+			{
+				std::map<std::string, float>::iterator result = findDateOrClosestOlder(database, date);
+				std::cout << date << " => " << value << " = " << value_float * result->second << std::endl;
+			}
+			catch (std::exception &e)
+			{
+				std::cerr << RED << e.what() << RESET << std::endl;
+			}
 		}
 	}
 
